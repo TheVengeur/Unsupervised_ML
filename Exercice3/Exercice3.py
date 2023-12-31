@@ -9,6 +9,10 @@ from sklearn.metrics import pairwise_distances
 from sklearn.decomposition import PCA
 from time import time
 
+from warnings import simplefilter
+# ignore all future warnings
+simplefilter(action='ignore')
+
 def Exercice3():
 
     # Load the dataset

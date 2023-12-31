@@ -39,10 +39,10 @@ def Exercice1():
         return np.linalg.norm(point1 - point2)
 
     # Initialize arrays for storing results
-    n_values = np.arange(1, 1001)  # Values of n from 1 to 1000
+    n_values = np.arange(1, 10001)  # Values of n from 1 to 10000
     distances = []
 
-    print("we sample it to 1000")
+    print("we sample it to 10000")
     # Calculate expected value E[Z]
     expected_value = np.sum(np.outer(age_values, hair_color_percentages) * joint_distribution)
 
