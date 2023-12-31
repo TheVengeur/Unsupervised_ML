@@ -7,7 +7,7 @@ def Exercice1():
     age_values = np.array([20, 30, 40])
     hair_color_percentages = np.array([0.2, 0.5, 0.3])
 
-    print("here is a representation of the hair color and the percentage of them in the population")
+    print("voici une représentation de la couleur des cheveux et de leur pourcentage dans la population")
     # Define possible values for Y (hair color percentage)
     hair_color_categories = ['Blonde', 'Brown', 'Other']
     hair_color_percentages = np.array([0.2, 0.5, 0.3])
@@ -42,11 +42,11 @@ def Exercice1():
     n_values = np.arange(1, 10001)  # Values of n from 1 to 10000
     distances = []
 
-    print("we sample it to 10000")
+    print("on prepare un echantillon de 10000")
     # Calculate expected value E[Z]
     expected_value = np.sum(np.outer(age_values, hair_color_percentages) * joint_distribution)
 
-    print("the expected value is :" +str(expected_value))
+    print("la valeur attendue est de :" +str(expected_value))
 
     # Sample n points and calculate empirical averages
     for n in n_values:

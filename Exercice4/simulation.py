@@ -75,7 +75,7 @@ def run_simulation() -> list:
     return averaged_rewards
 
 
-def main():
+def main(show_graph:bool=False):
     averaged_rewards = run_simulation()
     final_averaged_reward = averaged_rewards[-1]
     print(f"final reward: {final_averaged_reward:.3f}")
@@ -87,6 +87,8 @@ def main():
         f"Averaged accumulated reward\n" f"averaged reward: {final_averaged_reward:.3f}"
     )
     plt.title(title)
+    if show_graph:
+        plt.show()
     figname = f"{final_averaged_reward:.3f}.pdf"
     figpath = os.path.join(os.path.dirname(__file__), "images", figname)
     plt.savefig(figpath)
