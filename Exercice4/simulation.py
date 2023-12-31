@@ -1,10 +1,17 @@
+# Remove errors with imports
+import sys
+from pathlib import Path
+file = Path(__file__).resolve()
+parent, root = file.parent, file.parents[1]
+sys.path.append(str(root))
+
 import os
 
 import matplotlib.pyplot as plt
 import numpy as np
 
-from agent import Agent
-from default_policy import default_policy
+from Exercice4.agent import Agent
+from Exercice4.default_policy import default_policy
 
 WORLD_SIZE = 8
 WORLD_UPDATE_PERIOD = 10
@@ -13,6 +20,8 @@ TOTAL_NUMBER_OF_STEPS = NB_PERIODS * WORLD_UPDATE_PERIOD
 MAX_REWARD = 100
 NB_REWARDS = 3
 
+## change policy here
+current_policy = default_policy
 
 def reset_rewards(world_size: int) -> np.ndarray:
     rewards = np.zeros(world_size)
@@ -48,7 +57,7 @@ def run_simulation() -> list:
             # print(f"rewards: {rewards}\n")
 
         # choose action and move agent
-        action = default_policy(agent)
+        action = current_policy(agent) # See line 24
         agent.move(action, WORLD_SIZE)
         # print(f"move {action}")
         # print(f"position: {agent.position}")
@@ -79,7 +88,7 @@ def main():
     )
     plt.title(title)
     figname = f"{final_averaged_reward:.3f}.pdf"
-    figpath = os.path.join("images", figname)
+    figpath = os.path.join(os.path.dirname(__file__), "images", figname)
     plt.savefig(figpath)
     plt.close()
 

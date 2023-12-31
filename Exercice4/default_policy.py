@@ -1,4 +1,4 @@
-from agent import Agent
+from Exercice4.agent import Agent
 
 
 def default_policy(agent: Agent) -> str:
